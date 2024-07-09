@@ -27,15 +27,12 @@ export class LoginComponent {
   errorMessage: string|null = null;
 
   onSubmit(): void {
+    console.log('login');
     const rawForm = this.form.getRawValue();
     this.authService.login(rawForm.email, rawForm.password).subscribe(() => {
       this.router.navigate(['/home']);
     }, (error) => {
       this.errorMessage = error.code;
     });
-  }
-  
-  logout() : void{
-    console.log('logout');
   }
 }
