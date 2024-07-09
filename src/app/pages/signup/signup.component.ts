@@ -2,7 +2,8 @@ import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-signup',
@@ -14,6 +15,8 @@ import { RouterLink } from '@angular/router';
 export class SignupComponent {
   fb = inject(FormBuilder);
   http = inject(HttpClient);
+  authService = inject(AuthService);
+  router = inject(Router);
 
   form = this.fb.nonNullable.group({
     username: ['', Validators.required],
@@ -21,7 +24,14 @@ export class SignupComponent {
     password: ['', Validators.required],
   });
 
+  errorMessage: string|null = null;
+
   onSubmit(): void {
-    console.log('register');
+    const rawForm = this.form.getRawValue();
+    this.authService.signup(rawForm.email, rawForm.username, rawForm.password).subscribe(() => {
+      this.router.navigate(['/login']);
+    }, (error) => {
+      this.errorMessage = error.code;
+    });
   }
 }
