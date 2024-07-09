@@ -29,7 +29,7 @@ export class LoginComponent {
   onSubmit(): void {
     const rawForm = this.form.getRawValue();
     this.authService.login(rawForm.email, rawForm.password).subscribe(() => {
-      this.router.navigate(['/login']);
+      this.router.navigate(['/home']);
     }, (error) => {
       this.errorMessage = error.code;
     });

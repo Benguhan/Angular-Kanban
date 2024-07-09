@@ -1,12 +1,15 @@
-import { Injectable, inject } from '@angular/core';
-import { Auth, updateProfile, createUserWithEmailAndPassword, signInWithEmailAndPassword } from '@angular/fire/auth';
+import { Injectable, inject, signal } from '@angular/core';
+import { Auth, updateProfile, createUserWithEmailAndPassword, signInWithEmailAndPassword, user } from '@angular/fire/auth';
 import { Observable, from } from 'rxjs';
+import { UserInterface } from '../user.interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   firebaseAuth = inject(Auth);
+  user$ = user(this.firebaseAuth);
+  currentUserSig = signal<UserInterface | null | undefined>(null); 
 
   constructor() { }
 
