@@ -5,7 +5,7 @@
             <span *ngIf="isSidebarOpen" class="ml-4 text-4xl font-bold text-white" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">Kanban</span>
         </div>
         <nav class=" flex flex-col mx-8 justify-between my-14 gap-8 ">
-            <a href="#" class="flex text-center items-center space-x-8 p-2 rounded-md hover:bg-gray-700 transition duration-300 text-white text-xl">
+            <a href="/home" class="flex text-center items-center space-x-8 p-2 rounded-md hover:bg-gray-700 transition duration-300 text-white text-xl">
                 <i class="pi pi-home text-3xl"></i>
                 <p *ngIf="isSidebarOpen">Home</p>
             </a>
@@ -17,7 +17,7 @@
                 <i class="pi pi-plus text-3xl"></i>
                 <p *ngIf="isSidebarOpen">Add Task</p>
             </a>
-            <a href="#" class="flex text-center items-center space-x-8 p-2 rounded-md hover:bg-gray-700 transition duration-300 text-white text-xl">
+            <a href="/login" class="flex text-center items-center space-x-8 p-2 rounded-md hover:bg-gray-700 transition duration-300 text-white text-xl">
                 <i class="pi pi-sign-out text-3xl"></i>
                 <p *ngIf="isSidebarOpen">Signout</p>
             </a>

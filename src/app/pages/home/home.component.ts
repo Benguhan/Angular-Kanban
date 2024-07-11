@@ -7,12 +7,13 @@ import { PickListModule } from 'primeng/picklist';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, RouterLink],
+  imports: [CommonModule, RouterOutlet, RouterLink, PickListModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
 export class HomeComponent implements OnInit{
   authService = inject(AuthService);
+  date: Date | undefined;
 
   ngOnInit(): void {
     this.authService.user$.subscribe(user => {
