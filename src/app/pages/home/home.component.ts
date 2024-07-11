@@ -7,7 +7,7 @@ import { PickListModule } from 'primeng/picklist';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, RouterLink, PickListModule],
+  imports: [CommonModule, RouterOutlet, RouterLink],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
