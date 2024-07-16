@@ -1,0 +1,35 @@
+<!-- <div class="float-left w-24 h-24 m-2 p-2 border border-white" (drop)="drop($event)" (dragover)="allowDrop($event)">
+    <img src="assets/kanban.webp" draggable="true" (dragstart)="drag($event)" id="drag1" width="88" height="31">
+</div>
+
+<div class="float-left w-24 h-24 m-2 p-2 border border-white" (drop)="drop($event)" (dragover)="allowDrop($event)"></div> -->
+
+<div cdkDropListGroup class="mt-10 text-center">
+    <div class="example-container" style="width: 20%;">
+        <h2 class="font-sans text-4xl text-center mb-4 font-bold text-red-500">To do</h2>
+        <div cdkDropList [cdkDropListData]="todo" class="example-list" (cdkDropListDropped)="drop($event)">
+            <div class="example-box" *ngFor="let item of todo" style="font-size: large;" cdkDrag>{{ item }}</div>
+        </div>
+    </div>
+
+    <div class="example-container" style="width: 20%;">
+        <h2 class="font-sans text-4xl text-center mb-4 font-bold text-yellow-500">In Progress</h2>
+        <div cdkDropList [cdkDropListData]="inProgress" class="example-list" (cdkDropListDropped)="drop($event)">
+            <div class="example-box" *ngFor="let item of inProgress" style="font-size: large;" cdkDrag>{{ item }}</div>
+        </div>
+    </div>
+
+    <div class="example-container" style="width: 20%;">
+        <h2 class="font-sans text-4xl text-center mb-4 font-bold text-blue-500">Review</h2>
+        <div cdkDropList [cdkDropListData]="review" class="example-list" (cdkDropListDropped)="drop($event)">
+            <div class="example-box" *ngFor="let item of review" style="font-size: large;" cdkDrag>{{ item }}</div>
+        </div>
+    </div>
+
+    <div class="example-container" style="width: 20%;">
+        <h2 class="font-sans text-4xl text-center mb-4 font-bold text-green-500">Done</h2>
+        <div cdkDropList [cdkDropListData]="done" class="example-list" (cdkDropListDropped)="drop($event)">
+            <div class="example-box" *ngFor="let item of done" style="font-size: large;" cdkDrag>{{ item }}</div>
+        </div>
+    </div>
+</div>
