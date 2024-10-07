@@ -7,6 +7,7 @@ export const routes: Routes = [
       path : '' ,loadComponent: ()=> import('./layouts/layout/layout.component').then(a => a.LayoutComponent),
       children : [ 
           { path: 'home', loadComponent: ()=> import('./pages/home/home.component').then(a => a.HomeComponent)},
+          { path: 'add-task', loadComponent: ()=> import('./pages/add-task/add-task.component').then(a => a.AddTaskComponent)},
       ]
     },
 
